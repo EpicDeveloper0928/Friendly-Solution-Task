@@ -31,7 +31,12 @@
     <!-- Assigned to Column -->
     <ng-container matColumnDef="assigned_to">
       <th mat-header-cell *matHeaderCellDef>Assigned to</th>
-      <td mat-cell *matCellDef="let row">{{ row.assigned_to }}</td>
+      <td mat-cell *matCellDef="let row">
+        <!-- {{ row.assigned_to }} -->
+        <span *ngFor="let item of row.assigned_to; let i = index">
+          {{ item.person_name }} {{ i + 1 < row.assigned_to.length ? "," : "" }}
+        </span>
+      </td>
     </ng-container>
 
     <!-- Status Column -->
